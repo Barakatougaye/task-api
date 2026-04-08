@@ -1,0 +1,10 @@
+global:
+  scrape_interval: 10s
+  evaluation_interval: 10s
+
+scrape_configs:
+  - job_name: 'task-api'
+    metrics_path: '/l3gl/actuator/prometheus'
+    static_configs:
+       # On pointe vers l'IP de la VM 1 (ton Nginx) plutôt que l'IP directe de Minikube
+      - targets: ['192.168.1.101:80']
